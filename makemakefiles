@@ -1,0 +1,13 @@
+#
+# Usage:
+#    make -f makemakefiles
+# or, for Microsoft Visual C++:
+#    nmake -f makemakefiles MMOPT=-n
+#
+
+MAKEMAKE=opp_makemake $(MMOPT)
+
+INET_PROJ=../inet
+
+all:
+	cd src && $(MAKEMAKE) -f --deep --make-so -O out -Xconfiguration/base -Xsynchronisation/AS6802 -I../../inet/src/linklayer/ethernet -I../../inet/src/networklayer/common -I../../inet/src/networklayer/contract -I../../inet/src/util -I../../inet/src/linklayer/common -I../../inet/src/status -I../../inet/src/mobility/contract -I../../inet/src/applications/common -I../../inet/src/base -I../../inet/src/linklayer/contract -L../../inet/out/$$\(CONFIGNAME\)/src -linet -DWITH_TTE_COMMON -DWITH_TTE_TRAFFIC -DWITH_TTE_TRAFFICSOURCE -DWITH_TTE_API -DWITH_AS6802_COMMON -DWITH_AVB_COMMON -DINET_IMPORT -KINET_PROJ=../../inet
